@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 
@@ -30,9 +31,10 @@ class MessageTestCase(TestCase):
         self.assertEqual(last_message, models.Message.objects.all().last())
 
     def test_new_subscription_page(self):
+        self.client.login(username=settings.TEST_LDAP_USER)
         response = self.client.post(
             reverse('chat:chat-session'),
-            {'username': ('d' * 8), 'message': 'this is a new message'},
+            {'message': 'this is a new message'},
             follow=True
         )
         self.assertEqual(response.status_code, 200)
