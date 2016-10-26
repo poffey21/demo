@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^about/$', views.AboutPage.as_view(), name='about'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include('authentication.urls', namespace='account')),
+    url(r'^chat/', include('chat.urls', namespace='chat')),
 ]
 
 # User-uploaded files like profile pics need to be served in development

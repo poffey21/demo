@@ -27,6 +27,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',
     # make sure applications are enabled
+    '--cover-package=chat',
 ]
 if not DISABLE_AUTHENTICATION:
     NOSE_ARGS += ['--cover-package=authentication']

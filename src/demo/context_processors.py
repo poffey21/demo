@@ -42,6 +42,10 @@ def generate_menu(request):
             'title': 'About',
             'url': determine_url('about'),
         },
+        {
+            'title': 'Chat',
+            'url': determine_url('chat:chat-session'),
+        },
     ]
     for item in menu:
         if active_url == item['url']:
